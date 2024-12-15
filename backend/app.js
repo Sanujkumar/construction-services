@@ -2,6 +2,9 @@ const  mongoose  = require("mongoose");
 const express = require("express");
 const serviceSchema = require("./models/servicesSchema");   
 const app = express();
+const cors = require("cors");  
+
+app.use(cors());    
 const Port = 3000;
 
 main().then(() =>{
@@ -19,7 +22,7 @@ app.get("/", async (req,res) =>{
 
 
 
-
+  
 
 
 app.listen(Port,() =>{  
