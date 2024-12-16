@@ -47,7 +47,7 @@ app.get("/booking/:id", async (req, res) => {
 
   
 
-
-app.listen(Port,() =>{  
-    console.log(`app is listen to ${Port}`);   
-})
+module.exports = app;  
+// app.listen(Port,() =>{  
+//     console.log(`app is listen to ${Port}`);   
+// })
