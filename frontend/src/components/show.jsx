@@ -30,16 +30,16 @@ const Show = () => {
   return (
     <div className="show-card grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 m-10">
       {services.map((service) => (    
-        <div className="card" style={{ width: "20rem" }} key={service._id}>
+        <div className="card shadow-lg" style={{ width: "20rem" }} key={service._id}>
           <img className="card-img-top object-cover w-full h-48 " src={service.image} alt="Card image cap" />
-          <div className="card-body flex justify-between">  
+          <div className="card-body flex justify-between p-2">    
             <div >     
               <h5 className="card-name"><b>{service.name}</b></h5>
               <p className="card-description">{service.description}</p>
               <p><b>Price:</b> {service.price}</p>
               <p><b>Duration:</b> {service.duration}</p>
             </div>
-            <div className="mt-auto">    
+            <div className="mt-auto ">    
               <button   
               onClick={() => handleBookinService(service)}  
               class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">

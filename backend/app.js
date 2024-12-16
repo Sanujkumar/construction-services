@@ -3,9 +3,11 @@ const express = require("express");
 const serviceSchema = require("./models/servicesSchema");   
 const app = express();
 const cors = require("cors");  
+require("dotenv").config();
 
 app.use(cors());      
-const Port = 3000;    
+const Port =  process.env.PORT || 3000;  
+const  MONGODB_URI = process.env.MONGODB_URI;     
 
 
 main().then(() =>{
@@ -13,7 +15,7 @@ main().then(() =>{
 }).catch(err => console.log(err));  
 
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/constructionServices');   
+  await mongoose.connect(MONGODB_URI);     
 }
   
 app.get("/", async (req,res) =>{
