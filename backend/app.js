@@ -4,12 +4,8 @@ const serviceSchema = require("./models/servicesSchema");
 const app = express();
 const cors = require("cors");  
 
-    
-const Port = process.env.PORT || 3000;
-
-app.use(cors());  
-app.use(express.json);
-
+app.use(cors());      
+const Port = 3000;    
 
 
 main().then(() =>{
@@ -21,15 +17,30 @@ async function main() {
 }
   
 app.get("/", async (req,res) =>{
+  try{
+    const services = await serviceSchema.find();
+    res.json(services);      
+  }catch(err){
+    console.log(err);  
+    res.status(500).json({message: err.message});
+  }
+});    
+
+app.get("/booking/:id", async (req, res) => {
     try {
-        const services = await Service.find(); 
-        res.status(200).json(services); 
-      } catch (err) {
-        console.error("Error fetching services:", err.message);
-        res.status(500).send({ message: "Server Error", error: err.message });
-      } 
-});      
-  
+      const id = req.params.id;
+      const booking = await serviceSchema.findById(id);
+      console.log(booking);  
+      if (!booking) {
+        return res.status(404).send("Booking not found");
+      }
+      res.json(booking);
+    } catch (err) {
+      console.error(err);
+      res.status(500).send("Server error");
+    }
+  });  
+
 
 
   
