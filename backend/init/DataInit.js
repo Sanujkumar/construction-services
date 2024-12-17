@@ -13,6 +13,7 @@ async function main() {
 
 const initData = async () => {
     try {
+        await serviceSchema.deleteMany({});  
         const count = await serviceSchema.countDocuments();
         console.log(`Number of records in the collection: ${count}`);
         if (count === 0) {
