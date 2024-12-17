@@ -90,6 +90,6 @@ app.post("/bookingData/:id", async (req, res) => {
 
   
 
-app.listen(Port, () => {
+app.listen(Port, '0.0.0.0', () => {
   console.log(`app is listen to ${Port}`);
 });  

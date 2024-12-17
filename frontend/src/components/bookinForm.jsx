@@ -9,8 +9,8 @@ const BookingForm = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                console.log(`Fetching data for service ID: ${serviceId}`);
-                const response = await axios.get(`http://localhost:3000/booking/${serviceId}`);
+                console.log(`Fetching data for service ID: ${serviceId}`);  
+                const response = await axios.get(`https://construction-services-3.onrender.com/booking/${serviceId}`);
                 console.log(response.data);
                 setServices(response.data);
             } catch (error) {
@@ -27,7 +27,7 @@ const BookingForm = () => {
             <h1 className="text-center text-3xl font-bold mb-8 pt-5">Booking Form for {service.name}</h1>
             <div className="flex items-center justify-center p-12">
                 <div className="mx-auto w-full max-w-[550px] bg-blue-50 p-5">
-                    <form  action={`http://localhost:3000/bookingData/${serviceId}`} method="POST">              
+                    <form  action={`https://construction-services-3.onrender.com/bookingData/${serviceId}`} method="POST">                
                         <div className="mb-5">
                             <label htmlFor="name" className="mb-3 block text-base font-medium text-[#07074D]">
                                 Full Name *    

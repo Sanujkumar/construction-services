@@ -11,9 +11,9 @@ const Show = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/");
+        const response = await axios.get("https://construction-services-3.onrender.com/");
         console.log("data is coming", response.data);
-        setServices(response.data);
+        setServices(response.data);  
       } catch (e) {
         console.log("show fetching error", e);
       }
