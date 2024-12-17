@@ -7,16 +7,20 @@ require("dotenv").config();
 
 app.use(cors());      
 const Port =  process.env.PORT || 3000;  
-const  MONGODB_URI = process.env.MONGODB_URI;     
+const  MONGODB_URI = process.env.MONGODB_URI;       
 
-
-main().then(() =>{
-    console.log("connect to DB");  
-}).catch(err => console.log(err));  
 
 async function main() {
-  await mongoose.connect(MONGODB_URI);     
+  await mongoose.connect(MONGODB_URI);  
 }
+
+main()
+  .then(() => {
+    console.log("Connected to DB");
+  })
+  .catch((err) => {
+    console.error("Error connecting to MongoDB:", err);
+  });  
   
 app.get("/", async (req,res) =>{
   try{
