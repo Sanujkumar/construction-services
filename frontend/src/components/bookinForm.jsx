@@ -23,10 +23,10 @@ const BookingForm = () => {
      
 
     return (
-        <div className="flex flex-col items-center justify-center min-h-screen">
+        <div className="flex flex-col items-center justify-center min-h-screen  bg-slate-300">  
             <h1 className="text-center text-3xl font-bold mb-8 pt-5">Booking Form for {service.name}</h1>
             <div className="flex items-center justify-center p-12">
-                <div className="mx-auto w-full max-w-[550px] bg-white">
+                <div className="mx-auto w-full max-w-[550px] bg-blue-50 p-5">
                     <form  action={`http://localhost:3000/bookingData/${serviceId}`} method="POST">              
                         <div className="mb-5">
                             <label htmlFor="name" className="mb-3 block text-base font-medium text-[#07074D]">
