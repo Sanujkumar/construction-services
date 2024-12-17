@@ -14,13 +14,13 @@ function App() {
         <div className="sticky top-0">
           <Navbar />
         </div>
-        <div>
+        <div className="">    
         <Routes>
           <Route path='/' element={<Show />} />
           <Route path='/booking/:serviceId' element={<Booking />} />    
         </Routes>
         </div>  
-        <div className='sticky bottom-0 w-full'>    
+        <div className="fixed bottom-0 w-full">        
           <Footer/>  
         </div>
       </div>
