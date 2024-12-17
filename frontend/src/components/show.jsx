@@ -49,7 +49,7 @@ const Show = () => {
           </div>
         </div>
       ))}
-    </div>
+    </div>  
   );
 };
 

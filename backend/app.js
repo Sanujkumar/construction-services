@@ -14,7 +14,7 @@ app.use(cors());
 const Port = process.env.PORT || 3000;
 const MONGODB_URI = process.env.MONGODB_URI;
 
-
+// const mongoUrl = "mongodb://127.0.0.1:27017/constructionServices"  
 async function main() {
   await mongoose.connect(MONGODB_URI);
 }
@@ -25,7 +25,7 @@ main()
   })
   .catch((err) => {
     console.error("Error connecting to MongoDB:", err);
-  });
+});
 
 app.get("/", async (req, res) => {
   try {
