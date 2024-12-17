@@ -25,12 +25,12 @@ const Show = () => {
   const handleBookinService = (service) => {
     nevigate(`/booking/${service._id}`);  
   }
-
-
+  
+  
   return (
-    <div className="show-card grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 m-10">
-      {services.map((service) => (    
-        <div className="card shadow-lg" style={{ width: "20rem" }} key={service._id}>
+    <div className="show-card bg-slate-300 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-10">  
+      {services.map((service) => (        
+        <div className="card shadow-xl bg-blue-50  " style={{ width: "20rem" }} key={service._id}>
           <img className="card-img-top object-cover w-full h-48 " src={service.image} alt="Card image cap" />
           <div className="card-body flex justify-between p-2">    
             <div >     
