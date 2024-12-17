@@ -29,8 +29,8 @@ const Show = () => {
   
   return (
     <div className="show-card bg-slate-300 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-10">  
-      {services.map((service) => (        
-        <div className="card shadow-xl bg-blue-50  " style={{ width: "20rem" }} key={service._id}>
+      {services.map((service) => (          
+        <div className="card shadow-xl bg-blue-50 rounded-2xl overflow-hidden" style={{ width: "20rem" }} key={service._id}>
           <img className="card-img-top object-cover w-full h-48 " src={service.image} alt="Card image cap" />
           <div className="card-body flex justify-between p-2">    
             <div >     
@@ -38,7 +38,7 @@ const Show = () => {
               <p className="card-description">{service.description}</p>
               <p><b>Price:</b> {service.price}</p>
               <p><b>Duration:</b> {service.duration}</p>
-            </div>
+            </div>  
             <div className="mt-auto ">    
               <button   
               onClick={() => handleBookinService(service)}  
