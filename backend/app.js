@@ -1,17 +1,22 @@
-const  mongoose  = require("mongoose");
+const mongoose = require("mongoose");
 const express = require("express");
-const serviceSchema = require("./models/servicesSchema");   
+const serviceSchema = require("./models/servicesSchema");
+const bookingSchema = require("./models/bookingSchema");      
 const app = express();
-const cors = require("cors");  
+app.use(express.urlencoded({ extended: true }));       
+app.use(express.json());
+const cors = require("cors");
 require("dotenv").config();
 
-app.use(cors());      
-const Port =  process.env.PORT || 3000;  
-const  MONGODB_URI = process.env.MONGODB_URI;       
+    
+
+app.use(cors());
+const Port = process.env.PORT || 3000;
+const MONGODB_URI = process.env.MONGODB_URI;
 
 
 async function main() {
-  await mongoose.connect(MONGODB_URI);  
+  await mongoose.connect(MONGODB_URI);
 }
 
 main()
@@ -20,38 +25,71 @@ main()
   })
   .catch((err) => {
     console.error("Error connecting to MongoDB:", err);
-  });  
-  
-app.get("/", async (req,res) =>{
-  try{
+  });
+
+app.get("/", async (req, res) => {
+  try {
     const services = await serviceSchema.find();
-    res.json(services);      
-  }catch(err){
-    console.log(err);  
-    res.status(500).json({message: err.message});
+    res.json(services);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ message: err.message });
   }
-});    
+});
 
 app.get("/booking/:id", async (req, res) => {
-    try {
-      const id = req.params.id;
-      const booking = await serviceSchema.findById(id);
-      console.log(booking);  
-      if (!booking) {
-        return res.status(404).send("Booking not found");
-      }
-      res.json(booking);
-    } catch (err) {
-      console.error(err);
-      res.status(500).send("Server error");
+  try {
+    const id = req.params.id;
+    const booking = await serviceSchema.findById(id);
+    console.log(booking);
+    if (!booking) {
+      return res.status(404).send("Booking not found");
     }
-  });  
+    res.json(booking);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send("Server error");
+  }
+});
+    
+
+    
+
+app.post("/bookingData/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    console.log("Service ID:", id);
+
+    console.log("request body", req.body);  
+
+    const bookingData = { ...req.body, serviceId: id };
+    const newBooking = new bookingSchema(bookingData);
+    
+    console.log("New Booking:", newBooking);
+
+    await newBooking.save();
+
+    res.json({
+      success: true,
+      message: "Booking created successfully",
+      data: newBooking,
+    });
+  } catch (error) {
+    console.error("Error creating booking:", error.message);
+    res.status(500).json({
+      success: false,
+      message: "Failed to create booking",
+      error: error.message,
+    });
+  }
+});
+  
+
 
 
 
   
 
- 
-app.listen(Port,() =>{  
-    console.log(`app is listen to ${Port}`);   
+app.listen(Port, () => {
+  console.log(`app is listen to ${Port}`);
 });  

@@ -20,33 +20,32 @@ const BookingForm = () => {
         fetchData();
     }, [serviceId]);
 
-    // if (!service || Object.keys(service).length === 0) {
-    //     return <div>Loading...</div>;  
-    // }  
+     
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen">
             <h1 className="text-center text-3xl font-bold mb-8 pt-5">Booking Form for {service.name}</h1>
             <div className="flex items-center justify-center p-12">
                 <div className="mx-auto w-full max-w-[550px] bg-white">
-                    <form>
+                    <form  action={`http://localhost:3000/bookingData/${serviceId}`} method="POST">              
                         <div className="mb-5">
                             <label htmlFor="name" className="mb-3 block text-base font-medium text-[#07074D]">
-                                Full Name
+                                Full Name *    
                             </label>
-                            <input type="text" name="name" id="name" placeholder="Full Name"
+                            <input type="text" name="name" id="name" placeholder="Full Name" required   
                                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
+                                  
                         </div>
                         <div className="mb-5">
                             <label htmlFor="phone" className="mb-3 block text-base font-medium text-[#07074D]">
-                                Phone Number
-                            </label>
-                            <input type="text" name="phone" id="phone" placeholder="Enter your phone number"
+                                Phone Number*
+                            </label>  
+                            <input type="number" name="phone" id="phone" placeholder="Enter your phone number" required      
                                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                         </div>
                         <div className="mb-5">
-                            <label htmlFor="email" className="mb-3 block text-base font-medium text-[#07074D]">
-                                Email Address
+                            <label htmlFor="email" className="mb-3 block text-base font-medium text-[#07074D] " required>   
+                                Email Address*
                             </label>
                             <input type="email" name="email" id="email" placeholder="Enter your email"
                                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
@@ -55,18 +54,18 @@ const BookingForm = () => {
                             <div className="w-full px-3 sm:w-1/2">
                                 <div className="mb-5">
                                     <label htmlFor="date" className="mb-3 block text-base font-medium text-[#07074D]">
-                                        Date
+                                        Date*
                                     </label>
-                                    <input type="date" name="date" id="date"
+                                    <input type="date" name="bookingDate" id="bookingdate" required  
                                         className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
-                                </div>
+                                </div>  
                             </div>
                             <div className="w-full px-3 sm:w-1/2">
                                 <div className="mb-5">
                                     <label htmlFor="time" className="mb-3 block text-base font-medium text-[#07074D]">
-                                        Time
+                                        Time*
                                     </label>
-                                    <input type="time" name="time" id="time"
+                                    <input type="time" name="bookingTime" id="bookingtime" required
                                         className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                 </div>
                             </div>
@@ -74,30 +73,30 @@ const BookingForm = () => {
 
                         <div className="mb-5 pt-3">
                             <label className="mb-5 block text-base font-semibold text-[#07074D] sm:text-xl">
-                                Address Details
+                                Address Details*  
                             </label>
                             <div className="-mx-3 flex flex-wrap">
                                 <div className="w-full px-3 sm:w-1/2">
                                     <div className="mb-5">
-                                        <input type="text" name="area" id="area" placeholder="Enter area"
+                                        <input type="text" name="area" id="area" placeholder="Enter area" required
                                             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                     </div>
                                 </div>
                                 <div className="w-full px-3 sm:w-1/2">
                                     <div className="mb-5">
-                                        <input type="text" name="city" id="city" placeholder="Enter city"
+                                        <input type="text" name="city" id="city" placeholder="Enter city" required
                                             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                     </div>
                                 </div>
                                 <div className="w-full px-3 sm:w-1/2">
                                     <div className="mb-5">
-                                        <input type="text" name="state" id="state" placeholder="Enter state"
+                                        <input type="text" name="state" id="state" placeholder="Enter state" required
                                             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                     </div>
                                 </div>
                                 <div className="w-full px-3 sm:w-1/2">
                                     <div className="mb-5">
-                                        <input type="text" name="post-code" id="post-code" placeholder="Post Code"
+                                        <input type="text" name="pincode" id="pincode" placeholder="Post Code" required  
                                             className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                                     </div>
                                 </div>
@@ -113,9 +112,9 @@ const BookingForm = () => {
                     </form>
                 </div>
             </div>
-        </div>
+        </div>  
     );
 };
 
-export default BookingForm;
+export default BookingForm;  
   
