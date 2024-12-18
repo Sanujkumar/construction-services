@@ -7,7 +7,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 const cors = require("cors");
 require("dotenv").config();
-
+  
     
 
 app.use(cors());
@@ -84,11 +84,8 @@ app.post("/bookingData/:id", async (req, res) => {
   }
 });
   
-
-
-
-
-  
+   
+ 
 
 app.listen(Port, () => {
   console.log(`app is listen to ${Port}`);
