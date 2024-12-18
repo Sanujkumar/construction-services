@@ -20,12 +20,12 @@ function App() {
           <Route path='/booking/:serviceId' element={<Booking />} />    
         </Routes>
         </div>  
-        <div className="fixed bottom-0 w-full">        
+        <div className="sticky bottom-0 w-full">        
           <Footer/>  
         </div>
       </div>
     </Router>  
-  )
+  )   
 }
 
 export default App;  
