@@ -1,18 +1,22 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Loading from "../common/laoding";  
 
 const BookingForm = () => {
     const { serviceId } = useParams();
-    const [service, setServices] = useState({});           
+    const [service, setServices] = useState({}); 
+    const [loading,setLoading] = useState(false);            
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 console.log(`Fetching data for service ID: ${serviceId}`);  
+                setLoading(true);
                 const response = await axios.get(`https://construction-services-1.onrender.com/booking/${serviceId}`);
                 console.log(response.data);
                 setServices(response.data);  
+                setLoading(false);   
             } catch (error) {
                 console.log("Error fetching data:", error);
             }
@@ -23,6 +27,11 @@ const BookingForm = () => {
      
 
     return (
+        <>
+        {loading ? (   
+          <Loading/>    
+        
+      ) : (
         <div className="flex flex-col items-center justify-center min-h-screen  bg-slate-300">  
             <h1 className="text-center text-3xl font-bold mb-8 pt-5">Booking Form for {service.name}</h1>
             <div className="flex items-center justify-center p-12">
@@ -113,6 +122,8 @@ const BookingForm = () => {
                 </div>
             </div>
         </div>  
+      ) }  
+        </>    
     );
 };
 

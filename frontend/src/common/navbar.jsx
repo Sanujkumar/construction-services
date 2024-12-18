@@ -1,26 +1,41 @@
-import { Link } from "react-router-dom";
+
+import Searchbar from "../navbarComponents/searchBar";
+import Theme from "../navbarComponents/theme";
+import Sinup from "../navbarComponents/sinup";
+import Login from "../navbarComponents/login";
+import User from "../navbarComponents/user";   
+import Home from "../navbarComponents/home";   
+
+
+
+
+const Navbar = () => {  
+  return (  
+      <div className="flex w-full justify-between bg-blue-400 items-center h-20 px-3">
+        
+        <div className="home">    
+          <Home/>    
+        </div> 
+        <div className="searchbar ">
+          <Searchbar />
+        </div>
    
-const Navbar = () => {
-    return (
-      <nav
-        className="relative flex w-full flex-wrap items-center justify-between bg-zinc-50 py-2 shadow-dark-mild dark:bg-neutral-800 lg:py-4">  
-        <div className="flex w-full flex-wrap items-center justify-between px-3">       
-          <div >  
-            <Link to="/" className="mx-2 my-1 flex items-center lg:mb-0 lg:mt-0 ">    
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRSwoxS0Rs3Rxq7jTYcDZmwJv2eq2dZLEnARg&s"  
-                style={{ height: "40px", width:"40px", borderRadius: "80%",  }}          
-                alt="construction-logo"          
-                loading="lazy"
-                
-              className="transition-all duration-300 ease-in-out hover:filter hover:gayscale-0 hover:invert hover:brightness-125"     
-               />  
-            </Link>    
+        <div className="flex justify-around w-1/2">    
+          <div className="">  
+            <Theme />
+          </div>
+          <div className="">
+            <Sinup/>
+          </div>
+          <div className="">
+            <Login />
+          </div>
+          <div className="">  
+            <User/>  
           </div>
         </div>
-      </nav>
-    );
-  };
-  
-  export default Navbar;
-    
+      </div> 
+  );
+};
+
+export default Navbar;  
