@@ -16,7 +16,7 @@ const ShowSpecificCard = () => {
       if (query) {  
         try {
           setLoading(true);
-          const response = await axios.get(`http://localhost:5000/services/search?name=${query}`);
+          const response = await axios.get(`https://construction-services-1.onrender.com/services/search?name=${query}`);  
           setServices(response.data);   
           setLoading(false);
         } catch (error) {
@@ -43,8 +43,8 @@ const ShowSpecificCard = () => {
             services.map((service) => (
               <ShowCard
                 key={service._id}
-                service={service}          // Passing service data
-                handleBookingService={handleBookingService} // Passing the booking handler
+                service={service}         
+                handleBookingService={handleBookingService} 
               />  
             ))  
           ) : (

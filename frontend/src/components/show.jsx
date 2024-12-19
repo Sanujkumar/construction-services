@@ -42,8 +42,8 @@ const Show = () => {
           {services.map((service) => (
               <ShowCard
                 key={service._id}
-                service={service}          // Passing service data
-                handleBookingService={handleBookinService} // Passing the booking handler
+                service={service}          
+                handleBookingService={handleBookinService} 
                 />  
               )) }      
         </div>        
