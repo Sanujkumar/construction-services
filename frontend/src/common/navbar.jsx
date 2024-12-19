@@ -7,9 +7,9 @@ import User from "../navbarComponents/user";
 import Home from "../navbarComponents/home";   
 import { useState } from "react";
 
-const [open,setOpen] = useState(false);  
+// const [open,setOpen] = useState(false);  
 
-
+  
 const Navbar = () => {  
   return (  
       <div className="flex w-full justify-between bg-blue-400 items-center h-20 px-3">
