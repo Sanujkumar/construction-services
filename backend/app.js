@@ -11,12 +11,12 @@ require("dotenv").config();
     
 
 app.use(cors());
-const Port = process.env.PORT || 3000;
+const Port = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI;
 
 // const mongoUrl = "mongodb://127.0.0.1:27017/constructionServices"  
 async function main() {
-  await mongoose.connect(MONGODB_URI);
+  await mongoose.connect(MONGODB_URI);  
 }
 
 main()
@@ -28,14 +28,41 @@ main()
 });
 
 app.get("/", async (req, res) => {
+   
   try {
-    const services = await serviceSchema.find();
-    res.json(services);
+      services = await serviceSchema.find();
+      res.json(services); 
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: err.message });
   }
+});      
+
+
+
+
+app.get("/services/search", async (req, res) => {
+  const { name } = req.query;  
+  console.log("Search term:", name);
+
+  try {
+    if (!name || typeof name !== "string") {
+      return res.status(400).json({ message: "Invalid search term" });
+    }
+    const services = await serviceSchema.find({
+      name: { $regex: name.trim(), $options: "i" },
+    });
+    
+    res.json(services);
+  } catch (e) {
+    console.error("Error searching services:", e);
+    res.status(500).json({ message: e.message });
+  }
 });
+  
+  
+  
+    
 
 app.get("/booking/:id", async (req, res) => {
   try {
@@ -83,8 +110,11 @@ app.post("/bookingData/:id", async (req, res) => {
     });
   }
 });
+
+
+
   
-   
+  
  
 
 app.listen(Port, () => {
