@@ -38,7 +38,8 @@ const ShowSpecificCard = () => {
       {loading ? (
         <Loading />  
       ) : (
-        <div className="show-card  bg-slate-300 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-5">
+        <div className="w-full min-h-screen bg-slate-300">        
+        <div className="show-card grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-5 ">
         {services.length > 0 ? (
             services.map((service) => (
               <ShowCard
@@ -48,9 +49,12 @@ const ShowSpecificCard = () => {
               />  
             ))  
           ) : (
-            <p>No services found.</p>
+            <div className=" ">
+            <p className="text-center">No services found.</p>
+            </div>
           )}  
-      </div>        
+      </div>    
+      </div>      
       )}
     </>
   );

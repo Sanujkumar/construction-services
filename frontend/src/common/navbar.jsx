@@ -6,22 +6,24 @@ import Login from "../navbarComponents/login";
 import User from "../navbarComponents/user";   
 import Home from "../navbarComponents/home";   
 import { useState } from "react";
+import { IoToggleOutline } from "react-icons/io5";  
 
-// const [open,setOpen] = useState(false);  
+
 
   
 const Navbar = () => {  
   return (  
       <div className="flex w-full justify-between bg-blue-400 items-center h-20 px-3">
         
-        <div className="home">    
+        <div className="">      
           <Home/>    
         </div> 
-        <div className="searchbar ">
+        <div className="searchbar ">  
           <Searchbar />
         </div>
-   
-        <div className="flex justify-around w-1/3">      
+        
+        <div className="sm:hidden"><button><IoToggleOutline className="w-12 h-12"/></button></div>
+        <div className="flex justify-around w-1/3  hidden sm:inline-flex">        
           <div className="">  
             <Theme />
           </div>

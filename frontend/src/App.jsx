@@ -17,7 +17,7 @@ function App() {
         <div className="sticky top-0">
           <Navbar />
         </div>
-        <div className="">      
+        <div className="">        
         <Routes>
           <Route path='/' element={<Show />} />
           <Route path="/services/search" element={<ShowSpecificCard />} />  

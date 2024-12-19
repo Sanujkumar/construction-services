@@ -16,7 +16,7 @@ const SearchBar = () => {
 
   return (
     <form onSubmit={showSpecificCard}>   
-      <div className="relative h-12 w-72 ">  
+      <div className="relative h-12 w-60 sm:w-72 ">      
         <input
           type="text"
           value={searchQuery}  
@@ -28,8 +28,8 @@ const SearchBar = () => {
           type="submit"  
           className="absolute right-2 top-1/2 transform -translate-y-1/2 "
         >
-          <IoIosSearch className="h-8 w-8 text-gray-500 hover:text-blue-800 " />    
-        </button>
+          <IoIosSearch className="h-8 w-10 text-gray-500 hover:text-black " />    
+        </button>  
       </div>
     </form>
   );

@@ -6,11 +6,13 @@ const Theme = () => {
     return (
         <div> 
             <button className="">   
-                <img className="hover:bg-blue-500 w-12 h-12" src={darkIcon} alt="Dark Icon" />
+                <img className="h-12 hover:bg-blue-500" src={darkIcon} alt="Dark Icon" />
             </button>        
-        </div>  
+        </div>    
     );  
 };
 
-export default Theme;
-  
+export default Theme;  
+   
+
+
