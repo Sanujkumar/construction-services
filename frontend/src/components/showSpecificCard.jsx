@@ -13,10 +13,10 @@ const ShowSpecificCard = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      if (query) {  
+      if (query) {    
         try {
           setLoading(true);
-          const response = await axios.get(`https://construction-services-1.onrender.com/services/search?name=${query}`);  
+          const response = await axios.get(`https://construction-services-1.onrender.com/services/search?name=${query}`);      
           setServices(response.data);   
           setLoading(false);
         } catch (error) {
