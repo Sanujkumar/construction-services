@@ -33,9 +33,9 @@ const BookingForm = () => {
         
       ) : (
         <div className="flex flex-col items-center justify-center min-h-screen  bg-slate-300">  
-            <h1 className="text-center text-3xl font-bold mb-8 pt-5">Booking Form for {service.name}</h1>
+            <h1 className="text-center text-3xl font-bold mb-3 pt-6 text-blue-500">Booking Form for {service.name}</h1>
             <div className="flex items-center justify-center p-12">
-                <div className="mx-auto w-full max-w-[550px] bg-blue-50 p-5">
+                <div className="mx-auto w-full max-w-[550px] bg-blue-400 p-5">
                     <form  action={`https://construction-services-1.onrender.com/bookingData/${serviceId}`} method="POST">                  
                         <div className="mb-5">
                             <label htmlFor="name" className="mb-3 block text-base font-medium text-[#07074D]">
@@ -114,7 +114,7 @@ const BookingForm = () => {
 
                         <div>
                             <button
-                                className="hover:shadow-form w-full rounded-md bg-[#6A64F1] py-3 px-8 text-center text-base font-semibold text-white outline-none">
+                                className="hover:shadow-form w-full rounded-md bg-blue-300 hover:bg-blue-500 py-3 px-8 text-center text-base font-semibold text-black outline-none">
                                 Book Appointment
                             </button>
                         </div>

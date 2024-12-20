@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Booking from './components/bookinForm';  
 import Footer from './common/footer';  
 import ShowSpecificCard from './components/showSpecificCard';
+import SinupForm from './components/sinupForm'; 
+import LoginForm from "./components/loginForm" 
   
   
 function App() {
@@ -21,7 +23,9 @@ function App() {
         <Routes>
           <Route path='/' element={<Show />} />
           <Route path="/services/search" element={<ShowSpecificCard />} />  
-          <Route path='/booking/:serviceId' element={<Booking />} />    
+          <Route path='/booking/:serviceId' element={<Booking />} />  
+          <Route path='/sinup' element={<SinupForm/>}/>  
+          <Route path='/login' element={<LoginForm/>}/>  
         </Routes>
         </div>  
         <div className="sticky bottom-0 w-full">          
