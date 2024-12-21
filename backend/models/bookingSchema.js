@@ -15,6 +15,7 @@ const bookingDataSchema  = mongoose.Schema({
     },
     email: {
         type: String,
+        unique:true,  
         required: true
     },
     bookingDate: {  
@@ -43,9 +44,7 @@ const bookingDataSchema  = mongoose.Schema({
     },  
     bookingId: {        
         type: String,  
-    }
-   
-   
+    } 
 });
 
 const BookingData = mongoose.model("BookingData",bookingDataSchema);  

@@ -1,15 +1,15 @@
 const mongoose = require("mongoose");
 const express = require("express");
+const bcrypt = require('bcrypt');  
 const serviceSchema = require("./models/servicesSchema");
-const bookingSchema = require("./models/bookingSchema");      
+const bookingSchema = require("./models/bookingSchema");  
+const userSchema = require("./models/userSchema");      
 const app = express();
 app.use(express.urlencoded({ extended: true }));       
 app.use(express.json());
 const cors = require("cors");
 require("dotenv").config();
-  
     
-
 app.use(cors());
 const Port = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -112,10 +112,27 @@ app.post("/bookingData/:id", async (req, res) => {
 });
 
 
+app.post("/sinup", async (req,res) =>{
+  const { name, email, password,re_enter } = req.body;
+   
+  if(password !== re_enter){
+    return res.json({
+      error: "password do not match"
+    });  
+  }
 
-  
-  
- 
+  try {
+    const hashpassword = bcrypt.hashSync(password,10);  
+    const user = new userSchema({ name, email, hashpassword });
+    await user.save();  
+    res.json({
+      message: "user sinup successfuly!"
+    });  
+  }catch(e){  
+    console.error(e);  
+  }
+});    
+
 
 app.listen(Port, () => {
   console.log(`app is listen to ${Port}`);
