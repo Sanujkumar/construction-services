@@ -33,8 +33,8 @@ main()
 app.get("/", async (req, res) => {
 
   try {
-    services = await serviceSchema.find();
-    res.json(services);
+    const services = await serviceSchema.find();
+    res.json(services);    
   } catch (err) {
     console.log(err);
     res.status(500).json({ message: err.message });
@@ -163,7 +163,7 @@ app.post("/login", async (req, res) => {
       const isMatch = bcrypt.compareSync(password, userFound.password);
       if (!isMatch) {
         return res.json({
-          message: "password do not match"
+          message: "password invalid please give right password"
         });
       }
 
@@ -174,13 +174,13 @@ app.post("/login", async (req, res) => {
       res.json({
         message: "login successfuly",
         token: token
-      })
+      });  
 
     } else {
       res.json({
         message: "user not found"
-      })
-    }
+      });  
+    };  
 
 
   } catch (e) {
@@ -194,3 +194,5 @@ app.post("/login", async (req, res) => {
 app.listen(Port, () => {
   console.log(`app is listen to ${Port}`);
 });  
+
+
