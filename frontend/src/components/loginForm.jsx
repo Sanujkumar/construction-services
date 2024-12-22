@@ -5,14 +5,14 @@ const loginForm = () => {
         <h1 className="text-center text-3xl font-bold mb-5 pt-3 text-blue-500">Login Form</h1>  
         <div className="flex items-center justify-center ">
             <div className="mx-auto w-full max-w-[550px] bg-blue-400 p-5">
-                <form>
-                    <div className="mb-4 pl-2">
-                    <label htmlFor="name" className="mb-1 block text-base font-medium text-[#07074D]">
-                                Full Name *    
+                <form action="https://construction-services-1.onrender.com/login" method="POST">
+                <div className="mb-4 pl-2">
+                    <label htmlFor="email" className="mb-1 block text-base font-medium text-[#07074D]">
+                                Email *    
                             </label>
-                            <input type="text" name="name" id="name" placeholder="Enter your name" required   
+                            <input type="email" name="email" id="emial" placeholder="Enter your email" required   
                                 className="w-4/3  rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
-                    </div>
+                    </div> 
                     <div className="mb-4 pl-2">
                     <label htmlFor="password" className="mb-1 block text-base font-medium text-[#07074D]">
                                 password *    
@@ -23,8 +23,8 @@ const loginForm = () => {
                     <div className="mb-4 pl-2">
                     <label htmlFor="name" className="mb-1 block text-base font-medium text-[#07074D]">
                                 Re-enter*
-                            </label>
-                            <input type="text" name="name" id="name" placeholder="Enter your name" required   
+                            </label>  
+                            <input type="text" name="re_enter" id="re_enter" placeholder="Enter your name" required   
                                 className="w-4/3  rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                     </div>  
                       
