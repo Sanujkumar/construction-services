@@ -3,7 +3,7 @@ const express = require("express");
 const bcrypt = require('bcryptjs');    
 const serviceSchema = require("./models/servicesSchema");
 const bookingSchema = require("./models/bookingSchema");  
-const userSchema = require("./models/userSchema");      
+const userConstruction = require("./models/userSchema");        
 const app = express();
 app.use(express.urlencoded({ extended: true }));       
 app.use(express.json());
@@ -115,6 +115,13 @@ app.post("/bookingData/:id", async (req, res) => {
 app.post("/sinup", async (req,res) =>{
   const { name, email, password,re_enter } = req.body;
   console.log(req.body);  
+  
+  const existEmail = await userConstruction.findOne({email});
+
+  if(existEmail){
+    return res.status(400).json({success: false, message: "Email already exist"} );   
+  }
+  
   if(password.trim() !== re_enter.trim()){
     return res.json({
       error: "password do not match"
@@ -123,8 +130,8 @@ app.post("/sinup", async (req,res) =>{
 
   try {
     const hashpassword = bcrypt.hashSync(password,10);  
-    const user = new userSchema({ name, email, hashpassword });
-    await user.save();  
+    const userconstruction = new userConstruction({ name, email, password: hashpassword });
+    await userconstruction.save();        
     res.json({
       message: "user sinup successfuly!"
     });  
@@ -136,5 +143,5 @@ app.post("/sinup", async (req,res) =>{
 
 app.listen(Port, () => {
   console.log(`app is listen to ${Port}`);
-});  
+});    
   

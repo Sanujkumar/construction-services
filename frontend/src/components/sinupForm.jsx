@@ -5,7 +5,7 @@ const sinupform = () => {
         <h1 className="text-center text-3xl font-bold mb-5 pt-3 text-blue-500">Sinup Form</h1>
         <div className="flex items-center justify-center ">
             <div className="mx-auto w-full max-w-[550px] bg-blue-400 p-5">
-                <form action="https://construction-services-1.onrender.com/sinup" method="POST">    
+                <form action="http://localhost:5000/sinup" method="POST">        
                     <div className="mb-4 pl-2">
                     <label htmlFor="name" className="mb-1 block text-base font-medium text-[#07074D]">
                                 Full Name *    
