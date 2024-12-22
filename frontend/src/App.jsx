@@ -6,7 +6,8 @@ import Booking from './components/bookinForm';
 import Footer from './common/footer';  
 import ShowSpecificCard from './components/showSpecificCard';
 import SinupForm from './components/sinupForm'; 
-import LoginForm from "./components/loginForm" 
+import LoginForm from "./components/loginForm" ;
+import NavbarLeftComponents from "../src/navbarComponents/navbarLeftcomponets/navbarleft"
   
   
 function App() {
@@ -28,8 +29,11 @@ function App() {
           <Route path='/login' element={<LoginForm/>}/>  
         </Routes>
         </div>  
-        <div className="sticky bottom-0 w-full">          
+        <div className="sticky bottom-0 w-full hidden sm:block">          
           <Footer/>  
+        </div>
+        <div className='flex-inline sm:hidden flex justify-between'>  
+          <NavbarLeftComponents/>    
         </div>
       </div>
     </Router>     
