@@ -5,7 +5,7 @@ const sinupform = () => {
         <h1 className="text-center text-3xl font-bold mb-5 pt-3 text-blue-500">Sinup Form</h1>
         <div className="flex items-center justify-center ">
             <div className="mx-auto w-full max-w-[550px] bg-blue-400 p-5">
-                <form>
+                <form action="https://construction-services-1.onrender.com/sinup" method="POST">    
                     <div className="mb-4 pl-2">
                     <label htmlFor="name" className="mb-1 block text-base font-medium text-[#07074D]">
                                 Full Name *    
@@ -31,7 +31,7 @@ const sinupform = () => {
                     <label htmlFor="password" className="mb-1 block text-base font-medium text-[#07074D]">
                                 Re-enter*
                             </label>
-                            <input type="password" name="re-enter" id="re-enter" placeholder="Enter your password" required   
+                            <input type="password" name="re_enter" id="re_enter" placeholder="Enter your password" required   
                                 className="w-4/3  rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md" />
                     </div>    
                       
