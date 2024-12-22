@@ -114,8 +114,8 @@ app.post("/bookingData/:id", async (req, res) => {
 
 app.post("/sinup", async (req,res) =>{
   const { name, email, password,re_enter } = req.body;
-   
-  if(password !== re_enter){
+  console.log(req.body);  
+  if(password.trim() !== re_enter.trim()){
     return res.json({
       error: "password do not match"
     });  
