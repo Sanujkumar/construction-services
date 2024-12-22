@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const express = require("express");
-const bcrypt = require('bcrypt');  
+const bcrypt = require('bcryptjs');    
 const serviceSchema = require("./models/servicesSchema");
 const bookingSchema = require("./models/bookingSchema");  
 const userSchema = require("./models/userSchema");      
