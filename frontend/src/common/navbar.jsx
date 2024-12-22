@@ -4,9 +4,10 @@ import Theme from "../navbarComponents/theme";
 import Sinup from "../navbarComponents/sinup";
 import Login from "../navbarComponents/login";
 import User from "../navbarComponents/user";   
-import Home from "../navbarComponents/home";   
-import { useState } from "react";
+import Home from "../navbarComponents/home"; 
+import Logout from "../navbarComponents/logout";    
 import { IoToggleOutline } from "react-icons/io5";  
+
 
 
 
@@ -32,6 +33,9 @@ const Navbar = () => {
           </div>
           <div className="">
             <Login />
+          </div>
+          <div>
+            <Logout/>  
           </div>
           <div className="">  
             <User/>  
