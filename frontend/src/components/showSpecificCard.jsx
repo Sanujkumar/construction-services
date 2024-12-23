@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import Loading from "../common/laoding";  
-import ShowCard from "../common/showCard";    
+import ShowCard from "../common/showCard";  
+import Skeleton from "../common/skeleton";     
 
 const ShowSpecificCard = () => {
   const [services, setServices] = useState([]);
@@ -36,7 +37,7 @@ const ShowSpecificCard = () => {
   return (
     <>
       {loading ? (
-        <Loading />  
+        <Loading/>          
       ) : (
         <div className="w-full min-h-screen bg-slate-300">        
         <div className="show-card grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 p-5 ">

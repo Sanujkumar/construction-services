@@ -4,6 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Loading from "../common/laoding"; 
 import ShowCard from "../common/showCard";   
+import Skeleton from "../common/skeleton";  
 
 
 const Show = () => {
@@ -34,8 +35,8 @@ const Show = () => {
 
   return (
     <>
-      {loading ? (   
-          <Loading/>    
+      {loading ? (     
+          <Loading/>       
         
       ) : (
         <div className="w-full min-h-screen bg-slate-300 ">    

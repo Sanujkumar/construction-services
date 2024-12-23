@@ -9,7 +9,7 @@ const LoginForm = () => {
   const navigate = useNavigate();
 
   const handleClickLogin = async (e) => {
-    e.preventDefault(); // Prevent default form submission
+    e.preventDefault(); 
     setLoading(true);
     setError(null);
 
@@ -17,10 +17,7 @@ const LoginForm = () => {
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await axios.post(
-        "https://construction-services-1.onrender.com/login",
-        data
-      );
+      const response = await axios.post("https://construction-services-1.onrender.com/login",data);
 
       setLoading(false);
 
@@ -33,8 +30,8 @@ const LoginForm = () => {
         setError( response.data.message || "Invalid data");
       }
     } catch (err) {
-      setLoading(false);
-      setError(response.data.message || "Something went wrong. Please try again.");
+      setLoading(false);  
+      setError(err.data.message || "Something went wrong. Please try again.");
     }
   };
 
