@@ -156,7 +156,7 @@ app.post("/login", async (req, res) => {
     if (userFound) {
       const isMatch = bcrypt.compareSync(password, userFound.password);
       if (!isMatch) {
-        return res.json({
+        return res.status(401).json({
           message: "password invalid please give right password"
         });
       }
@@ -164,24 +164,23 @@ app.post("/login", async (req, res) => {
       const token = jwt.sign({
         _id: userFound._id,
       }, JWT_SECRET);
-
-      res.json({
+  
+      res.status(200).json({
         message: "login successfuly",
         token: token
       });    
 
     } else {
-      res.json({
+      res.status(401).json({
         message: "user not found"
       });  
     };  
-
-
   } catch (e) {
     console.error(e);
+    res.status(500).json({
+      message: "internal server error"
+    });  
   }
-
-
 });
 
 
