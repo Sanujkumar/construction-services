@@ -145,14 +145,8 @@ app.post("/sinup", async (req, res) => {
 
 
 app.post("/login", async (req, res) => {
-  const { email, password, re_enter } = req.body;
+  const { email, password } = req.body;
   console.log(req.body);
-
-  if (password !== re_enter) {
-    return res.json({
-      message: "password do not match"
-    });
-  }
 
   try {
     const userFound = await userConstruction.findOne({
@@ -174,7 +168,7 @@ app.post("/login", async (req, res) => {
       res.json({
         message: "login successfuly",
         token: token
-      });  
+      });    
 
     } else {
       res.json({
