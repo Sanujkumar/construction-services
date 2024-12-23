@@ -135,11 +135,14 @@ app.post("/sinup", async (req, res) => {
     const hashpassword = bcrypt.hashSync(password, 10);
     const userconstruction = new userConstruction({ name, email, password: hashpassword });
     await userconstruction.save();
-    res.json({
+    res.status(200)json({
       message: "user sinup successfuly!"
     });
   } catch (e) {
     console.error(e);
+    res.status(500).json({
+      message: "internal server error"
+    });  
   }
 });
 
@@ -187,5 +190,5 @@ app.post("/login", async (req, res) => {
 app.listen(Port, () => {
   console.log(`app is listen to ${Port}`);
 });  
-
+  
 
