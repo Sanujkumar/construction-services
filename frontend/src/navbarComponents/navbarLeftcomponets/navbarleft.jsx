@@ -1,9 +1,7 @@
-import Theme from "../theme"
-import Sinup from "../sinup";
-import Login from "../login";
+
 import User from "../user";   
-import Logout from "../logout";
 import Notification from "../notification";     
+import OwnProfileCard from "../../components/pages/ownProfileCardForm";
 
 const navbarLeft = () => {
     return (
@@ -11,9 +9,12 @@ const navbarLeft = () => {
           <div>
             <Notification/>    
           </div>
+          <div>
+            <OwnProfileCard/>
+          </div>   
           <div className="">  
             <User/>  
-          </div>    
+          </div>   
            
         </>  
     );

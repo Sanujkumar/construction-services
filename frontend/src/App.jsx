@@ -39,7 +39,7 @@ function App() {
         <div className="sticky bottom-0 w-full hidden md:block">          
           <Footer/>  
         </div>
-        <div className='flex-inline md:hidden flex justify-between sticky bottom-0 bg-blue-400 p-2'>  
+        <div className='flex-inline lg:hidden flex justify-between sticky bottom-0 bg-blue-400 p-2'>  
           <NavbarLeftComponents/>      
         </div>
       </div>

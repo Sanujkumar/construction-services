@@ -13,9 +13,9 @@ const Sidebar = () => {
     };
 
     return (
-        <div className="relative">  
+        <div className="relative p-6">    
             
-            <div className=" fixed top-4 right-4 z-50">  
+            <div className="fixed top-4 right-1 z-50">  
                 <button onClick={toggleSidebar}>
                     <IoToggleOutline className="w-12 h-12" />
                 </button>
