@@ -19,7 +19,7 @@ const SignupForm = () => {
 
     try {
       const response = await axios.post("https://construction-services-1.onrender.com/sinup", data);
-      setLoading(false);
+      setLoading(false);   
 
       if (response.status === 200 || response.status === 201) {
         setSuccessMessage(response.data.message || "Signup successful!");

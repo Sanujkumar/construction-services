@@ -22,7 +22,9 @@ const Navbar = () => {
         <div className="searchbar ">  
           <Searchbar />
         </div>
+
         <div className="md:hidden"><Sidebar/></div>  
+
         <div className="w-1/2  hidden md:inline-flex justify-between">        
          <div>
           <Theme/>  
