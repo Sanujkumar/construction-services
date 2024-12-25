@@ -15,7 +15,12 @@ function App() {
 
   return (
     
-    <Router>
+    <Router
+    future={{
+      v7_startTransition: true, 
+      v7_relativeSplatPath: true, 
+    }}  
+    >
       <div>
         <div className="sticky top-0">
           <Navbar />

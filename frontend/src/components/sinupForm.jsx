@@ -36,10 +36,10 @@ const SignupForm = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-slate-300">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-blue-300">
       <h1 className="text-center text-3xl font-bold mb-5 pt-3 text-blue-500">Signup Form</h1>
       <div className="flex items-center justify-center">
-        <div className="mx-auto w-full max-w-[550px] bg-blue-400 p-5">
+        <div className="mx-auto w-full max-w-[550px] bg-blue-400 p-5 rounded-3xl shadow-2xl">
           <form onSubmit={handleSubmit}>
             <div className="mb-4 pl-2">
               <label htmlFor="name" className="mb-1 block text-base font-medium text-[#07074D]">
@@ -107,7 +107,7 @@ const SignupForm = () => {
       </div>
     </div>
   );
-};
+};   
 
 export default SignupForm;  
    

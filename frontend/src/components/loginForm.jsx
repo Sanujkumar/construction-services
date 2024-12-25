@@ -14,34 +14,39 @@ const LoginForm = () => {
     setError(null);
 
     const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());
+    const data = Object.fromEntries(formData.entries());   
 
     try {
-      const response = await axios.post("https://construction-services-1.onrender.com/login",data);
-
-      setLoading(false);
-
-      if (response.status === 200 || response.status === 201) {
-        setSuccess(response.data.message || "Login Successful");
+      const response = await axios.post("https://construction-services-1.onrender.com/login", data);
+      setLoading(false);  
+           
+      if (response.status === 200) {
+        setSuccess(response.data.message);
         setTimeout(() => {
-          navigate("/");
+          navigate("/");  
         }, 3000);
       } else {
-        setError( response.data.message || "Invalid data");
+        setError(response.data.message);  
       }
     } catch (err) {
       setLoading(false);  
-      setError(err.data.message || "Something went wrong. Please try again.");
+    
+      if (err.response) {
+        setError(err.response.data.message);  
+      } else {
+        setError("An unexpected error occurred."); 
+      }
     }
-  };
+        
+  };  
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-slate-300">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-blue-300">
       <h1 className="text-center text-3xl font-bold mb-5 pt-3 text-blue-500">
         Login Form
       </h1>
-      <div className="flex items-center justify-center">
-        <div className="mx-auto w-full max-w-[550px] bg-blue-400 p-5">
+      <div className="flex items-center justify-center ">  
+        <div className="mx-auto w-full max-w-[550px] bg-blue-400 p-5 rounded-3xl shadow-2xl">
           <form onSubmit={handleClickLogin}>
             <div className="mb-4 pl-2">
               <label

@@ -129,13 +129,13 @@ app.post("/sinup", async (req, res) => {
     return res.json({
       error: "password do not match"
     });
-  }
+  }  
 
   try {
     const hashpassword = bcrypt.hashSync(password, 10);
     const userconstruction = new userConstruction({ name, email, password: hashpassword });
     await userconstruction.save();
-    res.status(200)json({
+    res.status(200).json({
       message: "user sinup successfuly!"
     });
   } catch (e) {
@@ -149,12 +149,14 @@ app.post("/sinup", async (req, res) => {
 
 app.post("/login", async (req, res) => {
   const { email, password } = req.body;
-  console.log(req.body);
+  console.log("body",req.body);
+    
 
   try {
     const userFound = await userConstruction.findOne({
       email: email
     });
+    console.log(userFound);  
 
     if (userFound) {
       const isMatch = bcrypt.compareSync(password, userFound.password);
@@ -190,5 +192,5 @@ app.post("/login", async (req, res) => {
 app.listen(Port, () => {
   console.log(`app is listen to ${Port}`);
 });  
-  
+    
 

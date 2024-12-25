@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Loading from "../common/laoding"; 
 import ShowCard from "../common/showCard";   
-import Skeleton from "../common/skeleton";  
+  
 
 
 const Show = () => {
