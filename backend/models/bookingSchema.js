@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
+const UserConstruction = require('./userSchema');
 
-const bookingDataSchema  = mongoose.Schema({
+const bookingDataSchema = mongoose.Schema({
     serviceId: {
         type: String,
         required: true
@@ -15,10 +16,10 @@ const bookingDataSchema  = mongoose.Schema({
     },
     email: {
         type: String,
-        unique:true,  
+        unique: true,
         required: true
-    },
-    bookingDate: {  
+    },   
+    bookingDate: {
         type: Date,
         required: true
     },
@@ -38,14 +39,20 @@ const bookingDataSchema  = mongoose.Schema({
         type: String,
         required: true
     },
-    pincode: {  
+    pincode: {
         type: String,
-        required: true  
-    },  
-    bookingId: {        
-        type: String,  
-    } 
+        required: true
+    },
+    bookingId: {
+        type: String,
+    },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'UserConstruction',
+        required: true
+    },
+
 });
 
-const BookingData = mongoose.model("BookingData",bookingDataSchema);  
+const BookingData = mongoose.model("BookingData", bookingDataSchema);
 module.exports = BookingData;      

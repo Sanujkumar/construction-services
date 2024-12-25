@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const UserConstruction = require("./userSchema")
 
 
 const serviceSchema = mongoose.Schema({
@@ -22,6 +23,11 @@ const serviceSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    userId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'UserConstruction', 
+        required: true   
+    }
 });  
 
 const serviceData = mongoose.model("serviceData",serviceSchema);    

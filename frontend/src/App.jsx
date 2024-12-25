@@ -8,6 +8,7 @@ import ShowSpecificCard from './components/showSpecificCard';
 import SinupForm from './components/sinupForm'; 
 import LoginForm from "./components/loginForm" ;
 import NavbarLeftComponents from "../src/navbarComponents/navbarLeftcomponets/navbarleft"
+import Logout from './navbarComponents/logout';
   
   
 function App() {
@@ -31,14 +32,15 @@ function App() {
           <Route path="/services/search" element={<ShowSpecificCard />} />  
           <Route path='/booking/:serviceId' element={<Booking />} />  
           <Route path='/sinup' element={<SinupForm/>}/>  
-          <Route path='/login' element={<LoginForm/>}/>  
+          <Route path='/login' element={<LoginForm/>}/> 
+          <Route path='/logout' element={<Logout/>}   /> 
         </Routes>
         </div>  
-        <div className="sticky bottom-0 w-full hidden sm:block">          
+        <div className="sticky bottom-0 w-full hidden md:block">          
           <Footer/>  
         </div>
-        <div className='flex-inline sm:hidden flex justify-between'>  
-          <NavbarLeftComponents/>    
+        <div className='flex-inline md:hidden flex justify-between sticky bottom-0 bg-blue-400 p-2'>  
+          <NavbarLeftComponents/>      
         </div>
       </div>
     </Router>     

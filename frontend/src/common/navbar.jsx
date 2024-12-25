@@ -1,22 +1,20 @@
 
 import Searchbar from "../navbarComponents/searchBar";
+import Home from "../navbarComponents/home";    
+import Sidebar from "../navbarComponents/sidebar";  
+import Notification from "../navbarComponents/notification";
 import Theme from "../navbarComponents/theme";
 import Sinup from "../navbarComponents/sinup";
 import Login from "../navbarComponents/login";
-import User from "../navbarComponents/user";   
-import Home from "../navbarComponents/home"; 
 import Logout from "../navbarComponents/logout";
-import Notification from "../navbarComponents/notification"; 
-import LeftComponents from "../navbarComponents/navbarLeftcomponets/navbarleft"    
-import { IoToggleOutline } from "react-icons/io5";  
-
+import User from "../navbarComponents/user";
 
 
 
   
 const Navbar = () => {  
   return (  
-      <div className="flex w-full justify-between bg-blue-400 items-center h-20 px-3">
+      <div className="flex justify-between w-full bg-blue-400 items-center h-20 px-3">
         
         <div className="">      
           <Home/>    
@@ -24,10 +22,26 @@ const Navbar = () => {
         <div className="searchbar ">  
           <Searchbar />
         </div>
-        
-        <div className="sm:hidden"><button><IoToggleOutline className="w-12 h-12"/></button></div>
-        <div className="flex justify-around w-1/3  hidden sm:inline-flex">        
-         <LeftComponents/>    
+        <div className="md:hidden"><Sidebar/></div>  
+        <div className="w-1/2  hidden md:inline-flex justify-between">        
+         <div>
+          <Theme/>  
+         </div>    
+         <div>
+          <Notification/>  
+         </div>  
+         <div>
+          <Sinup/>  
+         </div>  
+         <div>
+          <Login/>  
+         </div>  
+         <div>
+          <Logout/>  
+         </div>
+         <div>
+          <User/>  
+         </div>    
         </div>
       </div> 
   );

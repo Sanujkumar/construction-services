@@ -8,24 +8,13 @@ import Notification from "../notification";
 const navbarLeft = () => {
     return (
         <>
-        <div className="">  
-            <Theme />
-          </div>
           <div>
             <Notification/>    
           </div>
-          <div className="">
-            <Sinup/>
-          </div>
-          <div className="">
-            <Login />
-          </div>
-          <div>
-            <Logout/>  
-          </div>
           <div className="">  
             <User/>  
-          </div>  
+          </div>    
+           
         </>  
     );
 };

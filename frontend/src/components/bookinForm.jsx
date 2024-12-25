@@ -13,8 +13,9 @@ const BookingForm = () => {
             try {
                 console.log(`Fetching data for service ID: ${serviceId}`);  
                 setLoading(true);
-                const response = await axios.get(`https://construction-services-1.onrender.com/booking/${serviceId}`);
-                console.log(response.data);
+                // const response = await axios.get(`https://construction-services-1.onrender.com/booking/${serviceId}`);
+                const response = await axios.get(`http://localhost:5000/booking/${serviceId}`);  
+                console.log(response.data);  
                 setServices(response.data);  
                 setLoading(false);   
             } catch (error) {
