@@ -14,11 +14,18 @@ const LoginForm = () => {
     setError(null);
 
     const formData = new FormData(e.target);
-    const data = Object.fromEntries(formData.entries());   
-
+    const data = Object.fromEntries(formData.entries());  
+    
+    // const data = {
+    //   email: e.target.email.value,
+    //   password: e.target.password.value,
+    // };  
+    
+   
     try {
-      const response = await axios.post("https://construction-services-1.onrender.com/login", data);
-      setLoading(false);  
+      const response = await axios.post("http://localhost:5000/login", data );  
+        console.log(response.data);  
+      setLoading(false);    
            
       if (response.status === 200) {
         setSuccess(response.data.message);

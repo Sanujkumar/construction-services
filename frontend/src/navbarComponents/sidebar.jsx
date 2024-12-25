@@ -1,6 +1,5 @@
 import { IoToggleOutline } from "react-icons/io5";  
-import { useState } from "react";
-import NavbarLeft from "./navbarLeftcomponets/navbarleft";    
+import { useState } from "react";      
 import Theme from "./theme";
 import Sinup from "./sinup";
 import Login from "./login";

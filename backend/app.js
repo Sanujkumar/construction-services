@@ -5,15 +5,17 @@ const bcrypt = require('bcryptjs');
 const serviceSchema = require("./models/servicesSchema");
 const bookingSchema = require("./models/bookingSchema");
 const userConstruction = require("./models/userSchema");
+const cors = require("cors");  
 const app = express();
+app.use(cors());  
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-const cors = require("cors");
+
 const jwt = require('jsonwebtoken');
 const JWT_SECRET = process.env.JWT_USER_PASSWORD;
 
 
-app.use(cors());
+
 const Port = process.env.PORT || 5000;
 const MONGODB_URI = process.env.MONGODB_URI;
 
@@ -115,6 +117,11 @@ app.post("/bookingData/:id", async (req, res) => {
 });
 
 
+app.post("/sample", (req,res) =>{
+  console.log(req.body);
+  res.json({message: "Hello World!"});  
+})
+
 app.post("/sinup", async (req, res) => {
   const { name, email, password, re_enter } = req.body;
   console.log(req.body);
@@ -192,5 +199,4 @@ app.post("/login", async (req, res) => {
 app.listen(Port, () => {
   console.log(`app is listen to ${Port}`);
 });  
-    
-
+      
