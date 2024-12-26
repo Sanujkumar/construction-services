@@ -24,7 +24,7 @@ const SignupForm = () => {
       if (response.status === 200 || response.status === 201) {
         setSuccessMessage(response.data.message || "Signup successful!");
         setTimeout(() => {
-          navigate("/login"); // Redirect after success
+          navigate("/login"); 
         }, 3000);  
       } else {
         throw new Error(response.data.message || "Something went wrong");

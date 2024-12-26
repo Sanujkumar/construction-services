@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const LoginForm = () => {
+const LoginForm = ({ setIsAuth }) => {     
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [success, setSuccess] = useState(null);
@@ -16,18 +16,19 @@ const LoginForm = () => {
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());  
     
-    // const data = {
-    //   email: e.target.email.value,
-    //   password: e.target.password.value,
-    // };  
+      
     
    
     try {
-      const response = await axios.post("https://construction-services-1.onrender.com/login", data );  
-        console.log(response.data);  
+      const response = await axios.post("https://construction-services-1.onrender.com/login", data );      
+        console.log(response.data);      
       setLoading(false);    
            
       if (response.status === 200) {
+        const token = response.data;
+        localStorage.setItem("jwtToken", token);  
+        console.log("jsonwebtoken",token);  
+        setIsAuth(true);          
         setSuccess(response.data.message);
         setTimeout(() => {
           navigate("/");  
@@ -45,7 +46,7 @@ const LoginForm = () => {
       }
     }
         
-  };  
+  };    
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-blue-300">

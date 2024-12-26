@@ -176,7 +176,8 @@ app.post("/login", async (req, res) => {
       const token = jwt.sign({
         _id: userFound._id,
       }, JWT_SECRET);
-  
+      
+      console.log("token",token);  
       res.status(200).json({
         message: "login successfuly",
         token: token

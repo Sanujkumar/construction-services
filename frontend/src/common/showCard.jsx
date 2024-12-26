@@ -3,16 +3,15 @@ import React from 'react';
 const ShowCard = ({ service, handleBookingService }) => {
   return (
     <div
-      className="card shadow-xl bg-blue-50 rounded-3xl overflow-hidden"
-      style={{ width: "20rem" }}
+      className="card shadow-xl bg-blue-50 rounded-3xl overflow-hidden  w-60 sm:w-80 "
       key={service._id} 
-    >
+    >    
       <img
-        className="card-img-top object-cover w-full h-48"
+        className="card-img-top object-cover w-full h-30 sm:h-48"
         src={service.image}
         alt="Card"
       />
-      <div className="card-body flex justify-between p-2 object-cover h-48 w-full">
+      <div className="card-body flex justify-between p-2 object-cover h-30 sm:h-48 w-full">
         <div>
           <h5 className="card-name">
             <b>{service.name}</b>
