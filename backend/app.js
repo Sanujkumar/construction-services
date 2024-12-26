@@ -117,11 +117,6 @@ app.post("/bookingData/:id", async (req, res) => {
 });
 
 
-app.post("/sample", (req,res) =>{
-  console.log(req.body);
-  res.json({message: "Hello World!"});  
-})
-
 app.post("/sinup", async (req, res) => {
   const { name, email, password, re_enter } = req.body;
   console.log(req.body);
