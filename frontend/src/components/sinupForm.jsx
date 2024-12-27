@@ -10,7 +10,7 @@ const SignupForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault(); 
-    setLoading(true);
+    setLoading(true);  
     setError(null);
 
   
@@ -18,7 +18,8 @@ const SignupForm = () => {
     const data = Object.fromEntries(formData.entries());
 
     try {
-      const response = await axios.post("https://construction-services-1.onrender.com/sinup", data);
+      // const response = await axios.post("https://construction-services-1.onrender.com/signup", data);
+      const response = await axios.post("http://localhost:5000/signup", data);  
       setLoading(false);   
 
       if (response.status === 200 || response.status === 201) {
@@ -67,7 +68,7 @@ const SignupForm = () => {
                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
               />
             </div>
-            <div className="mb-4 pl-2">
+            {/* <div className="mb-4 pl-2">  
               <label htmlFor="password" className="mb-1 block text-base font-medium text-[#07074D]">
                 Password *
               </label>
@@ -92,7 +93,7 @@ const SignupForm = () => {
                 required
                 className="w-full rounded-md border border-[#e0e0e0] bg-white py-3 px-6 text-base font-medium text-[#6B7280] outline-none focus:border-[#6A64F1] focus:shadow-md"
               />
-            </div>
+            </div> */}  
             <button
               className="bg-blue-300 h-10 w-24 rounded-3xl ml-40 hover:bg-blue-500"
               type="submit"
@@ -105,9 +106,9 @@ const SignupForm = () => {
           {successMessage && <p className="text-green-700 mt-4 text-center">{successMessage}</p>}
         </div>  
       </div>
-    </div>
+    </div>    
   );
 };   
 
 export default SignupForm;  
-   
+       

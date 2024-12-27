@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 
 
 
-const Sinup = () => {
+const Signup = () => {
     const navigate = useNavigate();
     const handleSinupClick = ()=>{
-        navigate('/sinup');  
+        navigate('/signup');    
     }
 
     return(
@@ -16,4 +16,4 @@ const Sinup = () => {
     );
 }  
 
-export default Sinup;        
+export default Signup;          

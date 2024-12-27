@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Booking from './components/bookinForm';  
 import Footer from './common/footer';  
 import ShowSpecificCard from './components/showSpecificCard';
-import SinupForm from './components/sinupForm'; 
+import SignupForm from './components/sinupForm'; 
 import LoginForm from "./components/loginForm" ;
 import NavbarLeftComponents from "../src/navbarComponents/navbarLeftcomponets/navbarleft"
 import { useState } from 'react';
@@ -31,7 +31,7 @@ function App() {
           <Route path='/' element={<Show />} />
           <Route path="/services/search" element={<ShowSpecificCard />} />  
           <Route path='/booking/:serviceId' element={<Booking />} />  
-          <Route path='/sinup' element={<SinupForm/>}/>  
+          <Route path='/signup' element={<SignupForm/>}/>    
           <Route path='/login' element={<LoginForm setIsAuth={setIsAuth}/>}/>       
         </Routes>
         </div>  
