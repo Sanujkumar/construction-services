@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const JWT_SECRET = process.env.JWT_USER_PASSWORD  
 const {bookingShema,serviceSchema,userSchema }  = require("./zod");    
 
-export const authentication = (req,res,next) => {
+module.exports.authentication = (req,res,next) => {
     const token = req.header.token;  
     if(!token){
         return res.json({
@@ -23,7 +23,7 @@ export const authentication = (req,res,next) => {
     }  
 } ;             
 
-export const authorization = (req,res,next) => {
+module.exports.authorization = (req,res,next) => {
     const userId = req.userId;
     const postId = req.params.id;
     if(userId !== postId){
@@ -36,7 +36,7 @@ export const authorization = (req,res,next) => {
 
 
 
-export const bookingSchemaValidation = (req,res,next) => {
+module.exports.bookingSchemaValidation = (req,res,next) => {
     try{
     const validationData = bookingShema.parse(req.body);
     next();
@@ -47,7 +47,7 @@ export const bookingSchemaValidation = (req,res,next) => {
     }
 }
 
-export const servicesSchemaValidation = (req,res,next) => {
+module.exports.servicesSchemaValidation = (req,res,next) => {
     try{
     const validationData = serviceSchema.parse(req.body);
     next();
@@ -58,7 +58,7 @@ export const servicesSchemaValidation = (req,res,next) => {
     }
 }
 
-export const usersSchemaValidation = (req,res,next) => {
+module.exports.usersSchemaValidation = (req,res,next) => {
     try{
     const validationData = userSchema.parse(req.body);
     next();
@@ -67,4 +67,4 @@ export const usersSchemaValidation = (req,res,next) => {
             message: "schema validation failed"
         });
     }
-}  
+}    
