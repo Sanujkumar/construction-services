@@ -18,10 +18,10 @@ const SignupForm = () => {
     const data = Object.fromEntries(formData.entries());
 
     try {
-      // const response = await axios.post("https://construction-services-1.onrender.com/signup", data);
-      const response = await axios.post("http://localhost:5000/signup", data);  
+      const response = await axios.post("https://construction-services-1.onrender.com/signup", data);
+      // const response = await axios.post("http://localhost:5000/signup", data);  
       setLoading(false);   
-   
+
       if (response.status === 200 || response.status === 201) {
         setSuccessMessage(response.data.message || "Signup successful!");
         setTimeout(() => {
