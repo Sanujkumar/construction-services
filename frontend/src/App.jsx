@@ -39,7 +39,7 @@ function App() {
         <div className="sticky bottom-0 w-full hidden lg:block">          
           <Footer/>  
         </div>
-        <div className='sticky bottom-0 bg-slate-400 p-2'>  
+        <div className='sticky bottom-0 bg-slate-400 p-2 block lg:hidden'>  
           <FooterComponents/>        
         </div>      
       </div>  
