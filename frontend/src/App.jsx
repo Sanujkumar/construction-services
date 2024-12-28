@@ -7,7 +7,8 @@ import Footer from './common/footer';
 import ShowSpecificCard from './components/showSpecificCard';
 import SignupForm from './components/sinupForm'; 
 import LoginForm from "./components/loginForm" ;
-import NavbarLeftComponents from "../src/navbarComponents/navbarLeftcomponets/navbarleft"
+import NavbarLeftComponents from "../src/navbarComponents/navbarLeftcomponets/navbarleft";
+import FooterComponents from './common/footerComponets';   
 import { useState } from 'react';
   
     
@@ -38,9 +39,9 @@ function App() {
         <div className="sticky bottom-0 w-full hidden lg:block">          
           <Footer/>  
         </div>
-        <div className='flex-inline lg:hidden flex justify-between sticky bottom-0 bg-slate-400 p-2'>  
-          <NavbarLeftComponents/>      
-        </div>
+        <div className='sticky bottom-0 bg-slate-400 p-2'>  
+          <FooterComponents/>        
+        </div>      
       </div>  
     </Router>       
   )   

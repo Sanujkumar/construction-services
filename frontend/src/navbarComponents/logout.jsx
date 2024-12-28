@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 
 const Logout = ({ setIsAuth }) => {
     const navigate = useNavigate();
-
-    const handleLogout = () => {
+   
+    const handleLogout = () => {  
         localStorage.removeItem("jwtToken");
         console.log("print Token",localStorage.getItem('jwtToken')); 
         console.log("Token removed");
-        setIsAuth(false);           
+        setIsAuth(false);             
         navigate('/');   
         alert("user logout ")
     };

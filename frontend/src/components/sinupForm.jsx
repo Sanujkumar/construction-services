@@ -12,7 +12,7 @@ const SignupForm = () => {
     e.preventDefault(); 
     setLoading(true);  
     setError(null);
-
+    
   
     const formData = new FormData(e.target);
     const data = Object.fromEntries(formData.entries());

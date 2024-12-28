@@ -8,21 +8,14 @@ import Sinup from "../navbarComponents/sinup";
 import Login from "../navbarComponents/login";
 import Logout from "../navbarComponents/logout";
 import User from "../navbarComponents/user";
+import SidebarComponents from "./sidebarComponents";
+import FooterComponents from "./footerComponets";  
 
 
 
 
 
-const Navbar = ({setIsAuth,isAuth}) => {
-     
-
-  // useEffect(() => {
-  //   const token = localStorage.getItem('jwtToken');  
-  //   console.log("navToken",token);  
-  //   if(token){
-  //     setIsAuth(true);    
-  //   }
-  // },[]);       
+const Navbar = ({setIsAuth,isAuth}) => {       
 
   return (
     <div className="flex justify-between w-full bg-blue-400 items-center h-20 px-3">
@@ -40,13 +33,13 @@ const Navbar = ({setIsAuth,isAuth}) => {
         </div>
          
          
-      <div className="w-1/2  hidden lg:inline-flex justify-between">
-        <div>
-          <Theme />
-        </div>
-        <div>
+      <div className="w-1/2  hidden lg:inline-flex justify-between pt-2">
+        {/* <div>    
           <Notification />
         </div>
+        <div>
+          <Theme />
+        </div>  
         {!isAuth ? (  
           <>
         <div>
@@ -59,12 +52,19 @@ const Navbar = ({setIsAuth,isAuth}) => {
         ): (
         <div>
           <Logout setIsAuth={setIsAuth} /> 
-        </div>  
+        </div>    
         )  }  
         <div>
           <User />
-        </div>
-      </div>     
+        </div> */}
+           
+      <div className="w-1/2">
+        <SidebarComponents setIsAuth={setIsAuth} isAuth={isAuth}/>
+      </div>
+      <div className="w-1/2">
+        <FooterComponents/>  
+      </div>
+      </div>    
     </div>
   );
 };
