@@ -1,24 +1,12 @@
 import { TbLayoutSidebarLeftExpand } from "react-icons/tb";
 import { TbLayoutSidebarRightExpand } from "react-icons/tb";
-import { useEffect } from "react";
 import { useState } from "react";
-import Theme from "./theme";
-import Login from "./login";
-import Logout from "./logout";  
-import Signup from "./sinup";
+
 import SidebarComponents from "../common/sidebarComponents";
 
 const Sidebar = ({setIsAuth,isAuth}) => {  
     const [open, setOpen] = useState(false);
-      
-
-    // const token = localStorage.getItem('jwtToken');  
-    // useEffect(() => {
-    //     console.log("loginToken", token);  
-    //     if (token != null) {
-    //         setIsAuth(false);        
-    //     }  
-    // },[]);                              
+                                    
                  
     
     const toggleSidebar = () => {
@@ -39,23 +27,6 @@ const Sidebar = ({setIsAuth,isAuth}) => {
                     }`}
             >
                 <div className="m-3">
-                    {/* <div className="pb-4 pl-3">
-                        <Theme />  
-                    </div> */}
-                    {/* {!isAuth ? (               
-                        <>
-                            <div className="pb-4">   
-                                <Signup/>  
-                            </div>
-                            <div className="pb-4">
-                                <Login />
-                            </div>
-                        </>
-                    ) : (
-                        <div>
-                            <Logout setIsAuth={setIsAuth}/>  
-                        </div>  
-                    )}   */}
                     <div>
                         <SidebarComponents setIsAuth={setIsAuth} isAuth={isAuth} open={open} />  
                     </div>

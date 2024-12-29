@@ -1,35 +1,37 @@
-import darkIcon from "../assets/darkIcon.png";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import DarkIcon from "../icons/darkIcon";
+import LightModeIcon from "../icons/lightModeIcon";
 
 const Theme = () => {
-    // Function to toggle between dark and light modes
-    const toggleMode = () => {
-        if (document.documentElement.classList.contains("dark")) {
-            document.documentElement.classList.remove("dark");
-            localStorage.setItem("theme", "light"); // Save preference as light mode
-        } else {
-            document.documentElement.classList.add("dark");
-            localStorage.setItem("theme", "dark"); // Save preference as dark mode
-        }
-    };
+    const [darkMode, setDarkMode] = useState(false);
 
-    // Apply stored theme preference on component load
+    
     useEffect(() => {
-        const savedTheme = localStorage.getItem("theme");
-        if (savedTheme === "dark") {
+        const storedTheme = localStorage.getItem("theme");
+        if (storedTheme === "dark" || (!storedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
             document.documentElement.classList.add("dark");
+            setDarkMode(true);
         } else {
             document.documentElement.classList.remove("dark");
+            setDarkMode(false);
         }
     }, []);
 
+   
+    const toggleMode = () => {
+        const isDarkMode = !darkMode;
+        setDarkMode(isDarkMode);
+        document.documentElement.classList.toggle("dark", isDarkMode);
+        localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+    };
+   
     return (
         <div>
             <button
                 onClick={toggleMode}
-                className="dark:bg-blue p-2 rounded-md hover:bg-gray-300"
+                className="bg-blue-300 p-2 rounded-md hover:bg-blue-500 dark:bg-gray-800 dark:hover:bg-gray-600 text-white"
             >
-                <img className="h-10" src={darkIcon} alt="Toggle Theme" />
+                {darkMode ? <DarkIcon /> : <LightModeIcon />}
             </button>
         </div>
     );
