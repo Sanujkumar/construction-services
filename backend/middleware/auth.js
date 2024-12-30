@@ -4,7 +4,7 @@ const jwt = require("jsonwebtoken");
 const JWT_SECRET = process.env.JWT_USER_PASSWORD  
 const {bookingShema,serviceSchema,userSchema }  = require("./zod");    
 
-module.exports.authentication = (req,res,next) => {
+module.exports.userAuth = (req,res,next) => {
     const token = req.header.token;  
     if(!token){
         return res.json({
@@ -18,12 +18,12 @@ module.exports.authentication = (req,res,next) => {
     next();  
     }catch(err){
         res.json({
-            message: "you are not signed in"
+            message: "you are not logedin"  
         })
     }  
-} ;             
+} ;                
 
-module.exports.authorization = (req,res,next) => {
+module.exports.userAuthorization = (req,res,next) => {
     const userId = req.userId;
     const postId = req.params.id;
     if(userId !== postId){

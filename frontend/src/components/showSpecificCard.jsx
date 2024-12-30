@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate, useLocation } from "react-router-dom";
 import Loading from "../common/laoding";  
 import ShowCard from "../common/showCard";  
-import Skeleton from "../common/skeleton";     
+     
 
 const ShowSpecificCard = () => {
   const [services, setServices] = useState([]);

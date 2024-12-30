@@ -6,7 +6,9 @@ const serviceSchema = require("./models/servicesSchema");
 const bookingSchema = require("./models/bookingSchema");
 const userConstruction = require("./models/userSchema");
 const generateRandomPassword = require("./utils/randomPassword");   
-const nodemailer = require("nodemailer");   
+const nodemailer = require("nodemailer");  
+const userAuth = require("./middleware/auth");  
+const UserAuthorization = require("./middleware/auth");  
 const cors = require("cors");
 const app = express();
 app.use(cors());
@@ -27,6 +29,8 @@ async function main() {
   await mongoose.connect(MONGODB_URI);
 }
 
+
+
 main()
   .then(() => {
     console.log("Connected to DB");
@@ -45,8 +49,6 @@ app.get("/", async (req, res) => {
     res.status(500).json({ message: err.message });
   }
 });
-
-
 
 
 app.get("/services/search", async (req, res) => {
@@ -72,7 +74,7 @@ app.get("/services/search", async (req, res) => {
 
 
 
-app.get("/booking/:id", async (req, res) => {
+app.get("/booking/:id",userAuth, async (req, res) => {
   try {
     const id = req.params.id;
     const booking = await serviceSchema.findById(id);
@@ -87,10 +89,10 @@ app.get("/booking/:id", async (req, res) => {
   }
 });
 
+  
 
 
-
-app.post("/bookingData/:id", async (req, res) => {
+app.post("/bookingData/:id", userAuth, async (req, res) => {
   try {
     const id = req.params.id;
     console.log("Service ID:", id);
@@ -227,6 +229,19 @@ app.post("/login", async (req, res) => {
       message: "internal server error"
     });
   }
+});
+
+
+app.post("/profile", async(req,res) => {
+  
+});
+
+app.post("/notification", async(req,res) => {
+
+});
+
+app.post("/createCard" , async(req,res) => {
+
 });
 
 
