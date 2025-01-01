@@ -95,11 +95,12 @@ app.get("/booking/:id",userAuth, async (req, res) => {
 app.post("/bookingData/:id", userAuth, async (req, res) => {
   try {
     const id = req.params.id;
+    const userId = req.user._id;
     console.log("Service ID:", id);
 
     console.log("request body", req.body);
 
-    const bookingData = { ...req.body, serviceId: id };
+    const bookingData = { ...req.body, serviceId: id, userId };
     const newBooking = new bookingSchema(bookingData);
 
     console.log("New Booking:", newBooking);
@@ -118,7 +119,7 @@ app.post("/bookingData/:id", userAuth, async (req, res) => {
       message: "Failed to create booking",
       error: error.message,
     });
-  }
+  }  
 });
 
 const transporter = nodemailer.createTransport({
