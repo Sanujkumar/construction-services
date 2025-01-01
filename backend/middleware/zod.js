@@ -3,7 +3,6 @@ const bookingSchema = require("../models/bookingSchema");
 const  serviceSchema = require("../models/servicesSchema");  
 const userSchema = require("../models/userSchema");  
 
-import { z } from "zod";
 
 module.exports.bookingSchema = z.object({
     serviceId: z.string(),
