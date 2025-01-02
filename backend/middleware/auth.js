@@ -1,5 +1,4 @@
-require("dotenv").config();  
-const {z } = require("zod");   
+require("dotenv").config();    
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = process.env.JWT_USER_PASSWORD  
 const {bookingShema,serviceSchema,userSchema }  = require("./zod");    
@@ -32,7 +31,7 @@ module.exports.userAuthorization = (req,res,next) => {
          });
     }
     next();    
-}
+};
 
 
 
@@ -45,7 +44,7 @@ module.exports.bookingSchemaValidation = (req,res,next) => {
             message: "schema validation failed"
         });
     }
-}
+};
 
 module.exports.servicesSchemaValidation = (req,res,next) => {
     try{
@@ -56,7 +55,7 @@ module.exports.servicesSchemaValidation = (req,res,next) => {
             message: "schema validation failed"
         });
     }
-}
+};
 
 module.exports.usersSchemaValidation = (req,res,next) => {
     try{
@@ -67,4 +66,4 @@ module.exports.usersSchemaValidation = (req,res,next) => {
             message: "schema validation failed"
         });
     }
-}    
+} ;   

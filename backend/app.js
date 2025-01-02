@@ -7,8 +7,7 @@ const bookingSchema = require("./models/bookingSchema");
 const userConstruction = require("./models/userSchema");
 const generateRandomPassword = require("./utils/randomPassword");   
 const nodemailer = require("nodemailer");  
-const userAuth = require("./middleware/auth");  
-const UserAuthorization = require("./middleware/auth");  
+const {userAuth, userAuthorization} = require('./middleware/auth');  
 const cors = require("cors");
 const app = express();
 app.use(cors());
@@ -233,17 +232,17 @@ app.post("/login", async (req, res) => {
 });
 
 
-app.post("/profile", async(req,res) => {
+// app.post("/profile", async(req,res) => {
   
-});
+// });
 
-app.post("/notification", async(req,res) => {
+// app.post("/notification", async(req,res) => {
 
-});
+// });
 
-app.post("/createCard" , async(req,res) => {
+// app.post("/createCard" , async(req,res) => {
 
-});
+// });  
 
 
 app.listen(Port, () => {
