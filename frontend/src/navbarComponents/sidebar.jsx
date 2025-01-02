@@ -23,7 +23,7 @@ const Sidebar = ({setIsAuth,isAuth}) => {
             </div>
 
             <div
-                className={`fixed top-0 right-0 h-full bg-blue-200 z-40 transition-transform duration-300 ease-in-out transform w-40 sm:60 ${open ? "-translate-x-0" : "translate-x-full"
+                className={`fixed top-0 right-0 h-full bg-blue-200 dark:bg-blue-400 z-40 transition-transform duration-300 ease-in-out transform w-40 sm:60 ${open ? "-translate-x-0" : "translate-x-full"  
                     }`}
             >
                 <div className="m-3">

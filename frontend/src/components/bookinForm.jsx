@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Loading from "../common/laoding";  
 
 const BookingForm = () => {
@@ -24,6 +24,8 @@ const BookingForm = () => {
         };
         fetchData();
     }, [serviceId]);
+
+     const navigate = useNavigate();
 
      
 
@@ -114,7 +116,7 @@ const BookingForm = () => {
                         </div>
 
                         <div>
-                            <button
+                            <button  
                                 className="hover:shadow-form w-full rounded-md bg-blue-300 hover:bg-blue-500 py-3 px-8 text-center text-base font-semibold text-black outline-none">
                                 Book Appointment
                             </button>

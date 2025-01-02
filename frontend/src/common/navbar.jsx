@@ -11,8 +11,8 @@ import FooterComponents from "./footerComponets";
 
 const Navbar = ({setIsAuth,isAuth}) => {       
 
-  return (
-    <div className="flex justify-between w-full bg-blue-400 items-center h-20 px-3 dark:shadow-xl">  
+  return (  
+    <div className="flex justify-between w-full bg-blue-400 items-center h-20 px-3 dark:shadow-xl dark:bg-blue-500">  
 
       <div className="">
         <Home />

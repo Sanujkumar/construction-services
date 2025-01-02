@@ -16,12 +16,12 @@ const SearchBar = () => {
 
   return (
     <form onSubmit={showSpecificCard}>   
-      <div className="relative h-12 w-60 sm:w-72">      
+      <div className="relative h-12 w-60 sm:w-72 ">      
         <input
           type="text"
           value={searchQuery}  
           onChange={(e) => setSearchQuery(e.target.value)}    
-          className="rounded-3xl h-full w-full pl-4 pr-10 text-center border focus:outline-none"  
+          className="rounded-3xl h-full w-full pl-4 pr-10 text-center border-none focus:outline-none dark:bg-blue-300"  
           placeholder="Search services"
         />
         <button
