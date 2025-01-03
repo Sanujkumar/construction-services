@@ -3,8 +3,9 @@ const jwt = require("jsonwebtoken");
 const JWT_SECRET = process.env.JWT_USER_PASSWORD  
 const {bookingShema,serviceSchema,userSchema }  = require("./zod");    
 
-module.exports.userAuth = (req,res,next) => {
-    const token = req.header.token;  
+module.exports.userAuth = (req,res,next) => {   
+    const authHeader = req.headers['authorization'];
+    const token = authHeader && authHeader.split(' ')[1] 
     if(!token){
         return res.json({
             message: "not token is provide"
