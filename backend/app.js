@@ -210,7 +210,7 @@ app.post("/login", async (req, res) => {
 
       const token = jwt.sign({
         _id: userFound._id,
-      }, JWT_SECRET);
+      }, JWT_SECRET,{ expiresIn: '1d' });  
 
       console.log("token", token);
       res.status(200).json({
