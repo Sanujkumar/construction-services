@@ -26,10 +26,10 @@ const LoginForm = ({ setIsAuth }) => {
       setLoading(false);    
              
       if (response.status === 200) {
-        const token = response.data;
-        localStorage.setItem("jwtToken", token);  
-        console.log("jsonwebtoken",token);  
-        setIsAuth(true);          
+         const token = response.data.token;     
+         localStorage.setItem("jwtToken", token);  
+         console.log("jsonwebtoken",token);  
+         setIsAuth(true);            
         setSuccess(response.data.message);
         setTimeout(() => {
           navigate("/");  

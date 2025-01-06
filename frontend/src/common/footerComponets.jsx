@@ -1,5 +1,4 @@
 import Notification from "../navbarComponents/notification";
-import OwnProfileCard from "../components/pages/ownProfileCardForm";
 import User from "../navbarComponents/user";  
 
 const footerComponents = () => {
@@ -9,9 +8,6 @@ const footerComponents = () => {
           <div>
             <Notification/>         
           </div>
-          <div>
-            <OwnProfileCard/>
-          </div>   
           <div className="">  
             <User/>  
           </div>   
